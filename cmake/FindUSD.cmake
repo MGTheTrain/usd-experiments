@@ -9,7 +9,7 @@ elseif(WIN32)
     message(STATUS "Finding USD on Windows")
     # TBD
 else()  
-    message(STATUS "Finding USD on an unsupported platform")
+    message(STATUS "Unsupported platform")
     # TBD
 endif()
 
@@ -17,9 +17,21 @@ endif()
 if(EXISTS "${USD_SEARCH_DIR}")
     message(STATUS "Searching for USD in: ${USD_SEARCH_DIR}")
 
-    file(GLOB USD_LIBRARIES 
-        ${USD_SEARCH_DIR}/lib/*.a
-        ${USD_SEARCH_DIR}/lib/*.dylib)
+    if(APPLE) 
+        file(GLOB USD_LIBRARIES 
+            ${USD_SEARCH_DIR}/lib/*.a
+            ${USD_SEARCH_DIR}/lib/*.dylib)
+    elseif(UNIX) 
+        message(STATUS "Finding USD on UNIX (likely Linux)")
+        # TBD
+    elseif(WIN32) 
+        message(STATUS "Finding USD on Windows")
+        # TBD
+    else()  
+        message(STATUS "Unsupported platform")
+        # TBD
+    endif()
+    
     if(USD_LIBRARIES)
         message(STATUS "Found USD library: ${USD_LIBRARIES}")
         set(USD_LIB_DIR "${USD_SEARCH_DIR}/lib")
