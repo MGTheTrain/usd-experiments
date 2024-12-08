@@ -28,13 +28,14 @@ Experimenting with C++ libraries capable of parsing USD files
 Unzip the folder, e.g. `usd.py311.windows-x86_64.usdview.release-0.24.11-4d81dd85`, rename it to `OpenUSD` and move it to the [third-party folder](./third-party/). On macOS 12.0 (Monterey) and greater versions pre-built OpenUSD CLI tools (e.g. `usdcat`)  should already be pre-installed
 - Add git submodules: `git subdmodule update --init`
 
-### Generating USD/A/C/Z files from glTF files
+### Generating usda or usdc files from glTF files
 
 The [data folder](data) can be utilized for storing USD/A/C/Z files. Run:
 
 ```sh
 usdcat <path to gltf file> -o <path to usd file>
 # e.g. usdcat third-party/glTF-Sample-Models/2.0/BrainStem/glTF/BrainStem.gltf -o data/BrainStem.usda
+# e.g. usdcat third-party/glTF-Sample-Models/2.0/BrainStem/glTF/BrainStem.gltf -o data/BrainStem.usdc
 ```
 
 ### Building application binaries
@@ -49,6 +50,7 @@ Run:
 # Unable to use the `-DCMAKE_TOOLCHAIN_FILE` option because of build errors as the `--allow-unsupported` flag is not available in the subsequent `cmake` command
 cmake -B build -DCMAKE_BUILD_TYPE=Release .
 cmake --build build --parallel --config Release
+./build/apps/openusd-parser/openusd-parser  <path to usdc or usda file>
 ```
 
 #### Windows OS
