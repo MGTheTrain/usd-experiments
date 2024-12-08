@@ -33,8 +33,8 @@ Unzip the folder, e.g. `usd.py311.windows-x86_64.usdview.release-0.24.11-4d81dd8
 The [data folder](data) can be utilized for storing USD/A/C/Z files. Run:
 
 ```sh
-usdcat <gltf file> -o <usd file>
-# e.g. usdcat git-modules/glTF-Sample-Models/2.0/BrainStem/glTF/BrainStem.gltf -o BrainStem.usda
+usdcat <path to gltf file> -o <path to usd file>
+# e.g. usdcat third-party/glTF-Sample-Models/2.0/BrainStem/glTF/BrainStem.gltf -o data/BrainStem.usda
 ```
 
 ### Building application binaries
@@ -46,7 +46,8 @@ Run:
 ```sh
 ./third-party/vcpkg/bootstrap-vcpkg.sh
 ./third-party/vcpkg/vcpkg install --allow-unsupported
-cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE='third-party/vcpkg/scripts/buildsystems/vcpkg.cmake' .
+# Unable to use the `-DCMAKE_TOOLCHAIN_FILE` option because of build errors as the `--allow-unsupported` flag is not available in the subsequent `cmake` command
+cmake -B build -DCMAKE_BUILD_TYPE=Release .
 cmake --build build --parallel --config Release
 ```
 

@@ -1,4 +1,4 @@
-    # Ignore compiled object files and executables
+# Ignore compiled object files and executables
 *.o
 *.obj
 *.so
@@ -29,7 +29,6 @@ CMakeScripts/
 cmake_install.cmake
 Makefile
 Makefile.in
-*.cmake
 
 # Ignore IDE or editor specific files
 .vscode/
