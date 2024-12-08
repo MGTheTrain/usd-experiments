@@ -50,7 +50,7 @@ Run:
 # Unable to use the `-DCMAKE_TOOLCHAIN_FILE` option because of build errors as the `--allow-unsupported` flag is not available in the subsequent `cmake` command
 cmake -B build -DCMAKE_BUILD_TYPE=Release .
 cmake --build build --parallel --config Release
-./build/apps/openusd-parser/openusd-parser  <path to usdc or usda file>
+./build/apps/openusd-parser/openusd-parser <path to usdc or usda file>
 ```
 
 #### Windows OS
