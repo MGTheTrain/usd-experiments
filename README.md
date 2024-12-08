@@ -26,6 +26,7 @@ Experimenting with C++ libraries capable of parsing USD files
 - Install a C++ compiler on your operating system. For example, on Ubuntu Linux use `sudo apt install -y build-essential` to install the `gcc` and `g++` compilers; on Windows, the `cl.exe` compiler is included with the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/); and on macOS, `clang` and `clang++` compilers are installed with the Xcode IDE, which can be downloaded from the Apple Store
 - For Windows and Linux systems, it is recommended to [download the pre-built libraries and tools of OpenUSD](https://developer.nvidia.com/usd#section-getting-started) due to time-consuming and resource-intensive [OpenUSD CMake builds](https://github.com/PixarAnimationStudios/OpenUSD). 
 Unzip the folder, e.g. `usd.py311.windows-x86_64.usdview.release-0.24.11-4d81dd85`, rename it to `OpenUSD` and move it to the [third-party folder](./third-party/). On macOS 12.0 (Monterey) and greater versions pre-built OpenUSD CLI tools (e.g. `usdcat`)  should already be pre-installed
+- Add git submodules: `git subdmodule update --init`
 
 ### Generating USD/A/C/Z files from glTF files
 
