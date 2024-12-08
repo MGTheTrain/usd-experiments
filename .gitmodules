@@ -1,6 +1,6 @@
-[submodule "git-modules/tinyusdz"]
-	path = git-modules/tinyusdz
+[submodule "third-party/tinyusdz"]
+	path = third-party/tinyusdz
 	url = git@github.com:lighttransport/tinyusdz.git
-[submodule "git-modules/glTF-Sample-Models"]
-	path = git-modules/glTF-Sample-Models
+[submodule "third-party/glTF-Sample-Models"]
+	path = third-party/glTF-Sample-Models
 	url = git@github.com:KhronosGroup/glTF-Sample-Models.git
