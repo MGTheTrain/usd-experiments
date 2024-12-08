@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <pxr/pxr.h>
-#include <pxr/usd/usd/stage.h>   // Ensures UsdPrimRange is fully included
+#include <pxr/usd/usd/stage.h>  
 #include <pxr/usd/usd/prim.h>
 #include <pxr/usd/usd/attribute.h>
 #include <pxr/usd/usdGeom/mesh.h>
@@ -72,10 +72,8 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    // Get the path to the USD file from the input arguments
     std::string usdFilePath = argv[1];
 
-    // Print the contents of the USD file
     PrintUsdFileContent(usdFilePath);
 
     return 0;
