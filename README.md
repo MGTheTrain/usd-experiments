@@ -41,12 +41,27 @@ usdcat <gltf file> -o <usd file>
 
 #### Mac OS
 
-TBD -> considers OpenUSD vcpkg depdency in order to install required libraries and headers
+Run: 
+
+```sh
+cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE='third-party/vcpkg/scripts/buildsystems/vcpkg.cmake' .
+cmake --build build --parallel --config Release
+```
 
 #### Windows OS
 
-TBD -> considers OpenUSD prebuilt libraries
+Run: 
+
+```sh
+cmake -B build -DCMAKE_BUILD_TYPE=Release .
+cmake --build build --parallel --config Release
+```
 
 #### Linux Ubuntu OS
 
-TBD -> considers OpenUSD prebuilt libraries
+Run: 
+
+```sh
+cmake -B build -DCMAKE_BUILD_TYPE=Release .
+cmake --build build --parallel --config Release
+```
