@@ -44,6 +44,8 @@ usdcat <gltf file> -o <usd file>
 Run: 
 
 ```sh
+./third-party/vcpkg/bootstrap-vcpkg.sh
+./third-party/vcpkg/vcpkg install --allow-unsupported
 cmake -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE='third-party/vcpkg/scripts/buildsystems/vcpkg.cmake' .
 cmake --build build --parallel --config Release
 ```
