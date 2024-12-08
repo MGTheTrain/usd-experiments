@@ -3,14 +3,11 @@
 if(APPLE) 
     set(USD_SEARCH_DIR "${CMAKE_SOURCE_DIR}/vcpkg_installed/arm64-osx")
 elseif(UNIX) 
-    message(STATUS "Finding USD on UNIX (likely Linux)")
-    # TBD
+    set(USD_SEARCH_DIR "${CMAKE_SOURCE_DIR}/third-party/OpenUSD")
 elseif(WIN32) 
-    message(STATUS "Finding USD on Windows")
-    # TBD
+    set(USD_SEARCH_DIR "${CMAKE_SOURCE_DIR}/third-party/OpenUSD")
 else()  
     message(STATUS "Unsupported platform")
-    # TBD
 endif()
 
 # Check if the USD directory exists
@@ -22,14 +19,15 @@ if(EXISTS "${USD_SEARCH_DIR}")
             ${USD_SEARCH_DIR}/lib/*.a
             ${USD_SEARCH_DIR}/lib/*.dylib)
     elseif(UNIX) 
-        message(STATUS "Finding USD on UNIX (likely Linux)")
-        # TBD
+        file(GLOB USD_LIBRARIES 
+            ${USD_SEARCH_DIR}/lib/*.a
+            ${USD_SEARCH_DIR}/lib/*.so)
     elseif(WIN32) 
-        message(STATUS "Finding USD on Windows")
-        # TBD
+        file(GLOB USD_LIBRARIES 
+            ${USD_SEARCH_DIR}/lib/*.lib
+            ${USD_SEARCH_DIR}/lib/*.dll)
     else()  
         message(STATUS "Unsupported platform")
-        # TBD
     endif()
     
     if(USD_LIBRARIES)
