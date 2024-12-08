@@ -1,0 +1,62 @@
+    # Ignore compiled object files and executables
+*.o
+*.obj
+*.so
+*.exe
+*.out
+*.dll
+*.dylib
+
+# Ignore compiled static libraries
+*.a
+*.lib
+
+# Ignore compiled dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Ignore build directories
+/build/
+/bin/
+/obj/
+/out/
+
+# Ignore CMake files
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+Makefile
+Makefile.in
+*.cmake
+
+# Ignore IDE or editor specific files
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln
+*.swp
+
+# Ignore debug and release directories
+/debug/
+/release/
+
+# Ignore dependency files
+*.d
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.temp
+
+# Ignore vcpkg_installed directory 
+vcpkg_installed

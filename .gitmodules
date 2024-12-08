@@ -1,0 +1,6 @@
+[submodule "git-modules/tinyusdz"]
+	path = git-modules/tinyusdz
+	url = git@github.com:lighttransport/tinyusdz.git
+[submodule "git-modules/glTF-Sample-Models"]
+	path = git-modules/glTF-Sample-Models
+	url = git@github.com:KhronosGroup/glTF-Sample-Models.git
