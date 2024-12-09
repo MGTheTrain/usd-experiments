@@ -19,6 +19,7 @@ Experimenting with C++ libraries capable of parsing USD files
 - [Download Pre-Built OpenUSD Libraries and Tools](https://developer.nvidia.com/usd#section-getting-started)
 - [A really small getting-started project for USD based projects](https://github.com/meshula/tinyusd)
 - [OpenUSD sample files for download](https://openusd.org/release/dl_downloads.html)
+- [vcpkg issue](https://github.com/microsoft/vcpkg/issues/37947)
 
 ## Getting started
 
