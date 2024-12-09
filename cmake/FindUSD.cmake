@@ -25,8 +25,6 @@ else()
 endif()
 
 if(EXISTS "${USD_SEARCH_DIR}")
-    message(STATUS "Searching for USD in: ${USD_SEARCH_DIR}")
-
     # Handle dynamic and static libraries separately based on platform
     if(APPLE) 
         file(GLOB USD_STATIC_LIBRARIES ${USD_SEARCH_DIR}/lib/*.a)
@@ -45,7 +43,7 @@ if(EXISTS "${USD_SEARCH_DIR}")
         message(STATUS "Found static USD libraries: ${USD_STATIC_LIBRARIES}")
         set(USD_STATIC_LIB_DIR "${USD_SEARCH_DIR}/lib")
     else()
-        message(FATAL_ERROR "Static USD libraries not found in: ${USD_SEARCH_DIR}/lib")
+        message(FATAL_ERROR "Static USD libraries not found")
     endif()
 
     if(USD_DYNAMIC_LIBRARIES)
@@ -59,11 +57,11 @@ if(EXISTS "${USD_SEARCH_DIR}")
         message(STATUS "Found USD include directory: ${USD_INCLUDE_DIRS}")
         set(USD_INCLUDE_DIR "${USD_SEARCH_DIR}/include")
     else()
-        message(FATAL_ERROR "USD include folder not found in: ${USD_SEARCH_DIR}/include")
+        message(FATAL_ERROR "USD include folder not found")
     endif()
 
 else()
-    message(FATAL_ERROR "USD base directory not found: ${USD_SEARCH_DIR}")
+    message(FATAL_ERROR "USD base directory not found")
 endif()
 
 set(USD_FOUND TRUE)
