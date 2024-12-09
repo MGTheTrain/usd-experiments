@@ -29,9 +29,9 @@ Experimenting with C++ libraries capable of parsing USD files
 - Install a C++ compiler on your operating system. For example, on Ubuntu Linux use `sudo apt install -y build-essential` to install the `gcc` and `g++` compilers; on Windows, the `cl.exe` compiler is included with the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/); and on macOS, `clang` and `clang++` compilers are system binaries
 - Add git submodules: `git subdmodule update --init`
 
-### Generating usda or usdc files from glTF files
+### Generating USDA or USDC files from glTF files
 
-To generate USD files from glTF files, you can either [download the pre-built OpenUSD libraries and tools](https://developer.nvidia.com/usd#section-getting-started) to use the `usdcat` CLI tool or build the project from GitHub. On macOS 12.0 (Monterey) and later, the pre-built OpenUSD CLI tools, including `usdcat`, should already be installed. The [data folder](data) can be utilized for storing usda or usdc files. Example usage os `usdcat`:
+To generate USD files from glTF files, you can either [download the pre-built OpenUSD libraries and tools](https://developer.nvidia.com/usd#section-getting-started) to use the `usdcat` CLI tool or build the project from GitHub. On macOS 12.0 (Monterey) and later, the pre-built OpenUSD CLI tools, including `usdcat`, should already be installed. The [data folder](data) can be utilized for storing USDA or USDC files. Example usage os `usdcat`:
 
 ```sh
 usdcat <path to gltf file> -o <path to usd file>
@@ -52,7 +52,7 @@ Run:
 # Unable to use the `-DCMAKE_TOOLCHAIN_FILE` option because of build errors as the `--allow-unsupported` flag is not available in the subsequent `cmake` command
 cmake -B build -DCMAKE_BUILD_TYPE=Release .
 cmake --build build --parallel --config Release
-./build/apps/openusd-parser/openusd-parser <path to usdc or usda file>
+./build/apps/openusd-parser/openusd-parser <path to USDC or USDA file>
 ```
 
 #### Windows OS
@@ -65,7 +65,7 @@ Run:
 .\third-party\vcpkg\vcpkg install # Initially building USD can be time-consuming and resource-intensive. Packages persist in the vcpkg git submodule
 cmake -B build -DCMAKE_BUILD_TYPE=Release . 
 cmake --build build --parallel --config Release
-.\build\apps\openusd-parser\Release\openusd-parser <path to usdc or usda file>
+.\build\apps\openusd-parser\Release\openusd-parser <path to USDC or USDA file>
 ```
 
 #### Linux Ubuntu OS
@@ -78,5 +78,5 @@ Run:
 ./third-party/vcpkg/vcpkg install # Initially building USD can be time-consuming and resource-intensive. Packages persist in the vcpkg git submodule
 cmake -B build -DCMAKE_BUILD_TYPE=Release .
 cmake --build build --parallel --config Release
-./build/apps/openusd-parser/openusd-parser <path to usdc or usda file>
+./build/apps/openusd-parser/openusd-parser <path to USDC or USDA file>
 ```
