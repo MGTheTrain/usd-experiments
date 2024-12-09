@@ -45,6 +45,7 @@ usdcat <path to gltf file> -o <path to usd file>
 Run: 
 
 ```sh
+# INFO: Tested on macOS 15
 ./third-party/vcpkg/bootstrap-vcpkg.sh
 ./third-party/vcpkg/vcpkg install --allow-unsupported # Initially building USD can be time-consuming and resource-intensive. Packages persist in the vcpkg git submodule
 # Unable to use the `-DCMAKE_TOOLCHAIN_FILE` option because of build errors as the `--allow-unsupported` flag is not available in the subsequent `cmake` command
@@ -58,6 +59,7 @@ cmake --build build --parallel --config Release
 Run: 
 
 ```sh
+# INFO: Tested on Windows 10
 .\third-party\vcpkg\bootstrap-vcpkg.bat
 .\third-party\vcpkg\vcpkg install # Initially building USD can be time-consuming and resource-intensive. Packages persist in the vcpkg git submodule
 cmake -B build -DCMAKE_BUILD_TYPE=Release . 
@@ -70,6 +72,7 @@ cmake --build build --parallel --config Release
 Run: 
 
 ```sh
+# INFO: Tested on Linux Ubuntu 20.04
 ./third-party/vcpkg/bootstrap-vcpkg.sh
 ./third-party/vcpkg/vcpkg install # Initially building USD can be time-consuming and resource-intensive. Packages persist in the vcpkg git submodule
 cmake -B build -DCMAKE_BUILD_TYPE=Release .
