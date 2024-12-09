@@ -1,5 +1,7 @@
 #include <iostream>
+#include <fstream>
 #include <string>
+#include <filesystem>
 #include <pxr/pxr.h>
 #include <pxr/usd/usd/stage.h>  
 #include <pxr/usd/usd/prim.h>
@@ -8,10 +10,11 @@
 #include <pxr/usd/sdf/assetPath.h>
 #include <pxr/usd/usd/primRange.h> 
 
+namespace fs = std::filesystem;
 using namespace pxr;
 
-void PrintPrimInfo(const UsdPrim& prim) {
-    std::cout << "Prim: " << prim.GetPath() << ", Type: " << prim.GetTypeName() << std::endl;
+void PrintPrimInfo(const UsdPrim& prim, std::ofstream& outputFile) {
+    outputFile << "Prim: " << prim.GetPath() << ", Type: " << prim.GetTypeName() << std::endl;
 
     if (prim.IsA<UsdGeomMesh>()) {
         UsdGeomMesh mesh(prim);
@@ -19,39 +22,49 @@ void PrintPrimInfo(const UsdPrim& prim) {
         UsdAttribute pointsAttr = mesh.GetPointsAttr();
         VtVec3fArray points;
         if (pointsAttr.Get(&points)) {
-            std::cout << "Points: ";
+            outputFile << "Points: ";
             for (const auto& point : points) {
-                std::cout << "(" << point[0] << ", " << point[1] << ", " << point[2] << ") ";
+                outputFile << "(" << point[0] << ", " << point[1] << ", " << point[2] << ") ";
             }
-            std::cout << std::endl;
+            outputFile << std::endl;
+        }
+
+        UsdAttribute normalsAttr = mesh.GetNormalsAttr();
+        VtVec3fArray normals;
+        if(normalsAttr.Get(&normals)) {
+            outputFile << "Normals: ";
+            for (const auto& normal : normals) {
+                outputFile << "(" << normal[0] << ", " << normal[1] << ", " << normal[2] << ") ";
+            }
+            outputFile << std::endl;
         }
 
         UsdAttribute faceVertexCountsAttr = mesh.GetFaceVertexCountsAttr();
         VtIntArray faceVertexCounts;
         if (faceVertexCountsAttr.Get(&faceVertexCounts)) {
-            std::cout << "Face Vertex Counts: ";
+            outputFile << "Face Vertex Counts: ";
             for (const auto& count : faceVertexCounts) {
-                std::cout << count << " ";
+                outputFile << count << " ";
             }
-            std::cout << std::endl;
+            outputFile << std::endl;
         }
 
         UsdAttribute faceVertexIndicesAttr = mesh.GetFaceVertexIndicesAttr();
         VtIntArray faceVertexIndices;
         if (faceVertexIndicesAttr.Get(&faceVertexIndices)) {
-            std::cout << "Face Vertex Indices: ";
+            outputFile << "Face Vertex Indices: ";
             for (const auto& index : faceVertexIndices) {
-                std::cout << index << " ";
+                outputFile << index << " ";
             }
-            std::cout << std::endl;
+            outputFile << std::endl;
         }
 
-        // Print other attributes as needed
-        // (like normals, geomBindTransform, jointIndices, jointWeights, etc.)
+        // Currently only the assumption is that only 1 usda or usdc file is parsed. Multi-file setup not considered
+        // UV coordinates, joint indices, and joint weights are not yet handled
     }
 }
 
-void PrintUsdFileContent(const std::string& usdFilePath) {
+void PrintUsdFileContent(const std::string& usdFilePath, const std::string& outputFilePath) {
     UsdStageRefPtr stage = UsdStage::Open(usdFilePath);
     if (!stage) {
         std::cerr << "Failed to open USD file: " << usdFilePath << std::endl;
@@ -60,21 +73,32 @@ void PrintUsdFileContent(const std::string& usdFilePath) {
 
     std::cout << "Successfully loaded USD file: " << usdFilePath << std::endl;
 
+    // Open the output file
+    std::ofstream outputFile(outputFilePath);
+    if (!outputFile.is_open()) {
+        std::cerr << "Failed to open output file: " << outputFilePath << std::endl;
+        return;
+    }
+
     auto range = stage->Traverse();
     for (UsdPrim prim : range) {
-        PrintPrimInfo(prim);
+        PrintPrimInfo(prim, outputFile);
     }
+
+    outputFile.close();
+    std::cout << "Output written to: " << outputFilePath << std::endl;
 }
 
 int main(int argc, char* argv[]) {
-    if (argc < 2) {
-        std::cerr << "Usage: " << argv[0] << " <path_to_usd_file>" << std::endl;
+    if (argc < 3) {
+        std::cerr << "Usage: " << argv[0] << " <path_to_usd_file> <output_folder>" << std::endl;
         return 1;
     }
 
     std::string usdFilePath = argv[1];
+    std::string outputFilePath = argv[2];
 
-    PrintUsdFileContent(usdFilePath);
+    PrintUsdFileContent(usdFilePath, outputFilePath);
 
     return 0;
 }
