@@ -13,9 +13,9 @@ include_directories(${USD_INCLUDE_DIR})
 
 add_executable(${TARGET} ${OPENUSD_PARSER_SRC})
 
-if(UNIX) # tested on macOS 15 and Linux Ubuntu 20.04
+if(UNIX) 
     target_link_libraries(${TARGET} PRIVATE ${USD_STATIC_LIBRARIES} ${USD_DYNAMIC_LIBRARIES})
-else() # tested on Windows 10 OS
+else() 
     target_link_libraries(${TARGET} PRIVATE ${USD_STATIC_LIBRARIES})
 
     if(WIN32)
