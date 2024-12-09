@@ -52,7 +52,8 @@ Run:
 # Unable to use the `-DCMAKE_TOOLCHAIN_FILE` option because of build errors as the `--allow-unsupported` flag is not available in the subsequent `cmake` command
 cmake -B build -DCMAKE_BUILD_TYPE=Release .
 cmake --build build --parallel --config Release
-./build/apps/openusd-parser/openusd-parser <path to USDC or USDA file>
+./build/apps/openusd-parser/openusd-parser <path to USDC or USDA file> <path to output text file>
+# e.g. ./build/apps/openusd-parser/openusd-parser data/BrainStem.usdc data/BrainStem.txt
 ```
 
 #### Windows OS
@@ -65,7 +66,7 @@ Run:
 .\third-party\vcpkg\vcpkg install # Initially building USD can be time-consuming and resource-intensive. Packages persist in the vcpkg git submodule
 cmake -B build -DCMAKE_BUILD_TYPE=Release . 
 cmake --build build --parallel --config Release
-.\build\apps\openusd-parser\Release\openusd-parser <path to USDC or USDA file>
+.\build\apps\openusd-parser\Release\openusd-parser <path to USDC or USDA file> <path to output text file>
 ```
 
 #### Linux Ubuntu OS
@@ -78,5 +79,5 @@ Run:
 ./third-party/vcpkg/vcpkg install # Initially building USD can be time-consuming and resource-intensive. Packages persist in the vcpkg git submodule
 cmake -B build -DCMAKE_BUILD_TYPE=Release .
 cmake --build build --parallel --config Release
-./build/apps/openusd-parser/openusd-parser <path to USDC or USDA file>
+./build/apps/openusd-parser/openusd-parser <path to USDC or USDA file> <path to output text file>
 ```
