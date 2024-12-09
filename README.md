@@ -25,7 +25,7 @@ Experimenting with C++ libraries capable of parsing USD files
 ### Preconditions
 
 - Download and install [CMake from the official website](https://cmake.org/download/)  or trough a package manager
-- Install a C++ compiler on your operating system. For example, on Ubuntu Linux use `sudo apt install -y build-essential` to install the `gcc` and `g++` compilers; on Windows, the `cl.exe` compiler is included with the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/); and on macOS, `clang` and `clang++` compilers are installed with the Xcode IDE, which can be downloaded from the Apple Store
+- Install a C++ compiler on your operating system. For example, on Ubuntu Linux use `sudo apt install -y build-essential` to install the `gcc` and `g++` compilers; on Windows, the `cl.exe` compiler is included with the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/); and on macOS, `clang` and `clang++` compilers are system binaries
 - Add git submodules: `git subdmodule update --init`
 
 ### Generating usda or usdc files from glTF files
