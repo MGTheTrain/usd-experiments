@@ -46,7 +46,8 @@ int main(int argc, char **argv) {
     for (const tinyusdz::Prim &root_prim : stage.root_prims()) {
         outputFile << "Prim Path: " << root_prim.absolute_path().full_path_name() << "\n";
         for (const tinyusdz::Prim& child : root_prim.children()) { 
-            
+            // Discontinued
+            // Refer to examples: https://github.com/lighttransport/tinyusdz/tree/dev/examples
         }
     }
 
