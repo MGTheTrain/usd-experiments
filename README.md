@@ -54,6 +54,7 @@ cmake -B build -DCMAKE_BUILD_TYPE=Release .
 cmake --build build --parallel --config Release
 ./build/apps/openusd-parser/openusd-parser <path to USDC or USDA file> <path to output text file>
 # e.g. ./build/apps/openusd-parser/openusd-parser data/BrainStem.usdc data/BrainStem.txt
+./build/apps/openusd-parser/tinyusdz-parser <path to USDC or USDA file> <path to output text file>
 ```
 
 #### Windows OS
@@ -67,6 +68,7 @@ Run:
 cmake -B build -DCMAKE_BUILD_TYPE=Release . 
 cmake --build build --parallel --config Release
 .\build\apps\openusd-parser\Release\openusd-parser <path to USDC or USDA file> <path to output text file>
+.\build\apps\openusd-parser\tinyusdz-parser <path to USDC or USDA file> <path to output text file>
 ```
 
 #### Linux Ubuntu OS
@@ -80,4 +82,5 @@ Run:
 cmake -B build -DCMAKE_BUILD_TYPE=Release .
 cmake --build build --parallel --config Release
 ./build/apps/openusd-parser/openusd-parser <path to USDC or USDA file> <path to output text file>
+./build/apps/openusd-parser/tinyusdz-parser <path to USDC or USDA file> <path to output text file>
 ```
